@@ -1,3 +1,12 @@
-#bro{
-    margin: 10px;
+#writer{
+    text-align: right;
+}
+h1{
+    text-align: center;
+}
+h2{
+    margin-left: 10px;
+}
+p{
+    margin-left: 40px;
 }
