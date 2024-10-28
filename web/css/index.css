@@ -1,7 +1,37 @@
-#writer{
-    text-align: right;
+@keyframes intro_left_right{
+    0%{
+        color: white;
+        padding-right: 50px;
+    }
+    100%{
+        color: black;
+    }
 }
-h1{
+
+@keyframes intro_up_down{
+    0%{
+        color: white;
+        padding-top: 50px;
+    }
+    100%{
+        color: black;
+    }
+}
+
+
+#writer{
+    animation: intro_left_right;
+    animation-fill-mode: backwards;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    text-align: right;
+    padding-right: 10px;
+}
+h1{ 
+    animation: intro_up_down;
+    animation-fill-mode: backwards;
+    animation-duration: 600ms;
     text-align: center;
 }
 h2{
