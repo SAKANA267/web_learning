@@ -1,0 +1,113 @@
+@keyframes intro_left_right{
+    0%{
+        color: white;
+        padding-right: 50px;
+    }
+    100%{
+        color: black;
+    }
+}
+
+@keyframes intro_up_down{
+    0%{
+        color: white;
+        padding-top: 50px;
+    }
+    100%{
+        color: black;
+    }
+}
+
+@keyframes rainbow_color {
+    0% {
+        color: red;
+    }
+    14% {
+        color: orange;
+    }
+    28% {
+        color: yellow;
+    }
+    42% {
+        color: green;
+    }
+    57% {
+        color: blue;
+    }
+    71% {
+        color: indigo;
+    }
+    85% {
+        color: violet;
+    }
+    100% {
+        color: red;
+    }
+}
+
+#writer{
+    animation: intro_left_right;
+    animation-fill-mode: backwards;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    text-align: right;
+    padding-right: 10px;
+}
+#writer:hover{
+    animation: rainbow_color 5s infinite;
+}
+
+h1{
+    animation: intro_up_down;
+    animation-fill-mode: backwards;
+    animation-duration: 600ms;
+    text-align: center;
+}
+h2{
+    margin-left: 10px;
+}
+p{
+    margin-left: 40px;
+}
+
+.question{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: background-color 0.4s ease-in-out, transform 0.2s ease;
+}
+
+.question:hover{
+    background-color: #f0f0f080;
+}
+
+.options{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 3px 10px;
+}
+
+.option{
+    display: block;
+    font-size: 1em;
+    margin: 5px;
+    padding: 5px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    border-radius: 10px;
+}
+
+.option:hover{
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.feedback{
+    margin-left: 40px;
+}

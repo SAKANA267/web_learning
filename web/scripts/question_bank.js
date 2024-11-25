@@ -29,29 +29,26 @@ questions.forEach(question => {
         <div class="question">${question.question}</div>
         <div class="options">
             ${question.options.map((option, index) => `
-                <p>
+                <label class="option">
                     <input type="radio" name="question-${question.question}" value="${option}">
                     ${index + 1}. ${option}
-                </p>
+                </label>
             `).join('')}
         </div>
-        <div class="feedback"></div>
     `;
     document.querySelector('#question-list').appendChild(questionItem);
 
     // 获取所有单选按钮
     const radioButtons = questionItem.querySelectorAll('input[type="radio"]');
-    const feedbackDiv = questionItem.querySelector('.feedback');
+    const questionDiv = questionItem.querySelector('.question');
 
     // 监听单选按钮的变化事件
     radioButtons.forEach(radio => {
         radio.addEventListener('change', () => {
             if (radio.value === question.answer) {
-                feedbackDiv.textContent = '正确';
-                feedbackDiv.style.color = 'green';
+                questionDiv.style.backgroundColor = '#00FF7F';
             } else {
-                feedbackDiv.textContent = '错误！';
-                feedbackDiv.style.color = 'red';
+                questionDiv.style.backgroundColor = '#FF4500';
             }
         });
     });

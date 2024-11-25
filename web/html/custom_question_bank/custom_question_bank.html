@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>自定义题库</title>
+    <link rel="stylesheet" href="../../css/question_bank.css">
     <script src="../../scripts/question_bank.js" defer></script>
 </head>
 <body>
     <div class="container">
         <h1>自定义题库</h1>
 
-        <div style="text-align: right;padding-bottom: 20px;">
-            <em id="writter">powered by SAKANA</em>
-        </div>
+        <p id="writer"><em>written by SAKANA</em></p>
         
+        <!-- 选择题列表 -->
+        <div id="question-list"></div>
+
         <!-- 按钮控制 -->
         <div class="buttons">
             <button id="toggleEnglish">隐藏英文</button>
             <button id="toggleChinese">隐藏中文</button>
         </div>
-
         <!-- 单词列表 -->
-        <div id="question-list"></div>
         <div id="wordList" class="word-list"></div>
     </div>
 
