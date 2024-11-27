@@ -71,6 +71,21 @@ p{
     margin-left: 40px;
 }
 
+.code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+}
+.code .string { color: #ce9178; }
+.code .key { color: #9cdcfe; }
+.code .braces { color: #d4d4d4; }
+.code .brackets { color: #d4d4d4; }
+.code .colon { color: #d4d4d4; }
+.code .comma { color: #d4d4d4; }
+
 .question{
     margin-left: 20px;
     margin-right: 20px;
@@ -97,7 +112,7 @@ p{
 .option{
     display: block;
     font-size: 1em;
-    margin: 5px;
+    margin: 5px 10px;
     padding: 5px;
     transition: background-color 0.2s ease, transform 0.2s ease;
     border-radius: 10px;
