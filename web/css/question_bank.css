@@ -72,12 +72,15 @@ p{
 }
 
 .code {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #1e1e1e;
+    background-color: #313131;
     color: #d4d4d4;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 3px;
+    border-radius: 10px;
     white-space: pre-wrap;
+    transition: transform 0.2s ease;
+}
+.code:hover{
+    transform: scale(1.05);
 }
 .code .string { color: #ce9178; }
 .code .key { color: #9cdcfe; }
