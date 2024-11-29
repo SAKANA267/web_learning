@@ -25,17 +25,25 @@
         </p>
 
         <button id="add-question-btn">Add Question</button>
+
+        <!-- 管理按钮 -->
+        <div class="container">
+            <button id="view-storage-btn">View Storage</button>
+            <button id="clear-storage-btn">Clear Storage</button>
+        </div>
+
+        <div class="container">
+            <h2>1.2JSON 转换</h2>
+            <label class="input-field">
+                Paste your question here:
+                <textarea id="question-text" rows="10" cols="50" placeholder="Enter the question, options, and answer"></textarea>
+            </label>
+            <button id="convert-btn">Convert to JSON</button>
+            <div class="output" id="output"></div>
+        </div>
         
         <!-- 选择题列表 -->
         <div id="question-list"></div>
-
-        <!-- 按钮控制 -->
-        <div class="buttons">
-            <button id="toggleEnglish">隐藏英文</button>
-            <button id="toggleChinese">隐藏中文</button>
-        </div>
-        <!-- 单词列表 -->
-        <div id="wordList" class="word-list"></div>
     </div>
 
     

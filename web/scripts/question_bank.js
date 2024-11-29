@@ -1,15 +1,70 @@
 //选择题json
-const questions = [
-    { "question": "What is the capital of France?", "options": ["Paris", "London", "Berlin", "Madrid"], "answer": "Paris" },
-    { "question": "What is the largest planet in our solar system?", "options": ["Earth", "Mars", "Jupiter", "Saturn"], "answer": "Jupiter" },
-    { "question": "What is the chemical symbol for water?", "options": ["H2O", "O2", "CO2", "NaCl"], "answer": "H2O" }
+let questions = [
+    { "question": "What is the capital of France?", "options": ["Paris", "London", "Berlin", "Madrid"], "answer": "Paris" }
 ];
 
-//填空题json
-const words = [
-    { "english": "Medical Informatics", "chinese": "医学信息学" },
-    { "english": "wearable medical devices", "chinese": "可穿戴医疗设备" },
-];
+// 从 localStorage 加载题目
+function loadQuestionsFromLocalStorage() {
+    const storedQuestions = localStorage.getItem('questions');
+    if (storedQuestions) {
+        return JSON.parse(storedQuestions);
+    }
+    return [];
+}
+
+// 查看 localStorage 中的题目
+function viewStorage() {
+    const storedQuestions = localStorage.getItem('questions');
+    alert(storedQuestions);
+}
+// 清空 localStorage
+function clearStorage() {
+    localStorage.removeItem('questions');
+    questions = questions.slice(0, 3); // 保留实例题目
+    loadQuestions();
+}
+// 绑定查看和清空 localStorage 按钮事件
+document.getElementById('view-storage-btn').addEventListener('click', viewStorage);
+document.getElementById('clear-storage-btn').addEventListener('click', clearStorage);
+
+// 将题目保存到 localStorage
+function saveQuestionsToLocalStorage() {
+    localStorage.setItem('questions', JSON.stringify(questions));
+}
+
+// 合并存储的题目到实例题目中
+const storedQuestions = loadQuestionsFromLocalStorage();
+if (Array.isArray(storedQuestions)) {
+    questions = questions.concat(storedQuestions);
+} else {
+    console.error("Stored questions are not in a valid array format.");
+}
+
+//自然语言转换json
+function convertToJSON() {
+    const text = document.getElementById('question-text').value;
+    const lines = text.split('\n').map(line => line.trim()).filter(line => line);
+
+    if (lines.length < 6) {
+        alert("Please enter a valid question with at least 4 options and an answer.");
+        return;
+    }
+
+    const question = lines[0];
+    const options = lines.slice(1, 5).map(option => option.replace(/^\d+\.\s*/, ''));
+    const answer = lines[5].replace('Answer: ', '');
+
+    const questionObject = {
+        question: question,
+        options: options,
+        answer: answer
+    };
+
+    const output = document.getElementById('output');
+    output.textContent = JSON.stringify(questionObject, null, 2);
+}
+//绑定转换按钮事件
+document.getElementById('convert-btn').addEventListener('click', convertToJSON);
 
 // 获取相关元素
 const toggleEnglishButton = document.getElementById('toggleEnglish');
@@ -57,57 +112,6 @@ function loadQuestions() {
     });
 }
 
-// 动态加载填空题
-words.forEach(word => {
-    const wordItem = document.createElement('div');
-    wordItem.classList.add('word-item');
-    wordItem.innerHTML = `
-        <span class="english">${word.english}</span> - <span class="chinese">${word.chinese}</span>
-        <input type="text" class="input-box" placeholder="默写单词">
-        <span class="feedback"></span>
-    `;
-    wordList.appendChild(wordItem);
-
-    // 获取当前单词的输入框和反馈元素
-    const inputBox = wordItem.querySelector('.input-box');
-    const feedbackSpan = wordItem.querySelector('.feedback');
-
-    // 监听输入框的输入事件
-    inputBox.addEventListener('input', () => {
-        const userAnswer = inputBox.value.trim();
-
-        // 判断用户输入的答案
-        if (userAnswer.toLowerCase() === word.english.toLowerCase()) {
-            feedbackSpan.textContent = '正确！';
-            feedbackSpan.style.color = 'green';
-        } else {
-            feedbackSpan.textContent = `错误！`;
-            feedbackSpan.style.color = 'red';
-        }
-    });
-});
-
-// 隐藏或显示英文单词
-toggleEnglishButton.addEventListener('click', () => {
-    isEnglishHidden = !isEnglishHidden;
-    const englishSpans = document.querySelectorAll('.english');
-    englishSpans.forEach(span => {
-        span.style.display = isEnglishHidden ? 'none' : 'inline';
-    });
-    toggleEnglishButton.textContent = isEnglishHidden ? '显示英文' : '隐藏英文';
-});
-
-// 隐藏或显示中文翻译
-toggleChineseButton.addEventListener('click', () => {
-    isChineseHidden = !isChineseHidden;
-    const chineseSpans = document.querySelectorAll('.chinese');
-    chineseSpans.forEach(span => {
-        span.style.display = isChineseHidden ? 'none' : 'inline';
-    });
-    toggleChineseButton.textContent = isChineseHidden ? '显示中文' : '隐藏中文';
-});
-
-
 
 // 添加题目
 function addQuestion() {
@@ -121,14 +125,14 @@ function addQuestion() {
                 alert("Invalid question format. Please ensure each question includes 'question', 'options', and 'answer'.");
             }
         });
+        saveQuestionsToLocalStorage();
         loadQuestions();
     } catch (e) {
         alert("Invalid JSON format. Please enter valid JSON strings.");
     }
 }
+// 绑定添加题目按钮事件
+document.getElementById('add-question-btn').addEventListener('click', addQuestion);
 
 // 初始化加载题目
 loadQuestions();
-
-// 绑定添加题目按钮事件
-document.getElementById('add-question-btn').addEventListener('click', addQuestion);
