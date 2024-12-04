@@ -1,3 +1,20 @@
+//加载动画
+const loading ={
+    container: document.querySelector('.loading'),
+    in(page){
+        this.container.classList.remove('loading_out');
+        setTimeout(()=>{
+            window.location.href = page;
+        },1000);
+    },
+    out(){
+        this.container.classList.add('loading_out'); 
+    }
+}
+window.addEventListener('load',()=>{
+        loading.out();
+})
+
 //选择题json
 let questions = [
     { "question": "What is the capital of France?", "options": ["Paris", "London", "Berlin", "Madrid"], "answer": "Paris" }

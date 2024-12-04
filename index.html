@@ -8,18 +8,24 @@
 </head>
 
 <body>
+    <div class="loading">
+        <svg viewbox='0 0 50 50'>
+        <circle r='25' cx='25' cy='25'></circle>
+        </svg>
+        <p>LOADING</p>
+    </div>
+
     <h1>Welcome!</h1>
     <h1>Homepage of SAKANA</h1>
     <p id="writer"><em>written by SAKANA</em></p>    
     
-
     <h2>Links</h2>
     
     <h3>Lessons</h3>
     <p><a href="./web/html/lesson_index.html">JP Lessons</a></p>
 
     <h3>Question bank</h3>
-    <p><a href="./web/html/custom_question_bank/custom_question_bank.html">Question bank</a></p>
+    <p onclick="loading.in('./web/html/custom_question_bank/custom_question_bank.html')">Question bank</p>
 
 
 </body>
