@@ -32,6 +32,7 @@
 }
 
 .loading p{
+    margin-left: 0px;
     font-size: large;
     display: flex; /* 添加 flex 布局 */
     flex-direction: column;
@@ -58,6 +59,35 @@
     opacity: 0;
 }
 
+/* 导航栏 */
+.topnav {
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 17px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: black;
+    color: #f0f0f0;
+    transform: scale(1.1);
+}
+
+.btn:active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* 主体 */
 @keyframes intro_left_right{
     0%{
         color: white;
@@ -118,6 +148,7 @@
     animation: rainbow_color 5s infinite;
 }
 
+
 h1{
     animation: intro_up_down;
     animation-fill-mode: backwards;
@@ -131,6 +162,7 @@ p{
     margin-left: 40px;
 }
 
+/* 代码块 */
 .code {
     background-color: #313131;
     color: #d4d4d4;
@@ -190,3 +222,4 @@ p{
 .feedback{
     margin-left: 40px;
 }
+

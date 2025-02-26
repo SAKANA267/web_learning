@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>Web learning</title>
     <link rel="stylesheet" href="./web/css/index.css">
     <script src="./web/scripts/index.js" defer></script>
@@ -20,13 +21,53 @@
     <p id="writer"><em>written by SAKANA</em></p>    
     
     <h2>Links</h2>
-    
-    <h3>Lessons</h3>
-    <p><a href="./web/html/lesson_index.html">JP Lessons</a></p>
+    <div class="container">
+        <p class="btn" onclick="loading.in('./web/html/lesson_index.html')">Lesson index</p>
+        <p class="btn" onclick="loading.in('./web/html/custom_question_bank/custom_question_bank.html')">Question bank</p>
+        <p class="btn" onclick="loading.in('./web/html/3c3u_high_way/3c3u_high_way.html')">3C3U High Way</p>
+    </div>
 
-    <h3>Question bank</h3>
-    <p onclick="loading.in('./web/html/custom_question_bank/custom_question_bank.html')">Question bank</p>
+    <h2>Contact Me</h2>
+    <div class="container">
+        <div id="tooltip" class="tooltip">已复制</div>
+        <div class="div">
+            <img class="svg" src="./web/resource/svg/bilibili.svg" alt="bilibili_svg" height="50px" width="50px">          
+            <p class="btn" onclick="loading.in('https://space.bilibili.com/35934540')">Bilibili</p>
+        </div>
 
+        <div class="div">
+            <img class="svg" src="./web/resource/svg/QQ.svg" alt="qq_svg" height="50px" width="50px">
+            <p class="btn" onclick="copyText(event,this)">2678452710</p>
+        </div>
+        
+        <div class="div">
+            <img class="svg" src="./web/resource/svg/mail.svg" alt="mail_svg" height="50px" width="50px">
+            <p class="btn" onclick="copyText(event,this)">ibert1ne@outlook.com</p>
+        </div>
+    </div>
+
+    <h2>Chat</h2>
+    <div>
+
+        <div>
+            <form id="message-form">
+                <div class="form-group">
+                    <label for="name">姓名:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">留言内容:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">提交</button>
+            </form>
+        </div>
+        
+        <h2>Chat board</h2>
+        <div id="messages">
+            
+        </div>
+    </div>
 
 </body>
 </html>

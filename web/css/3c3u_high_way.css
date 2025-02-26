@@ -1,23 +1,4 @@
-@keyframes intro_left_right{
-    0%{
-        color: white;
-        padding-right: 50px;
-    }
-    100%{
-        color: black;
-    }
-}
-
-@keyframes intro_up_down{
-    0%{
-        color: white;
-        padding-top: 50px;
-    }
-    100%{
-        color: black;
-    }
-}
-
+/* 加载动画 */
 .loading{
     position: fixed;
     display: flex; /* 添加 flex 布局 */
@@ -78,6 +59,52 @@
     opacity: 0;
 }
 
+@keyframes intro_left_right{
+    0%{
+        opacity: 0;
+        padding-right: 50px;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes intro_up_down{
+    0%{
+        opacity: 0;
+        padding-top: 50px;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes rainbow_color {
+    0% {
+        color: red;
+    }
+    14% {
+        color: orange;
+    }
+    28% {
+        color: yellow;
+    }
+    42% {
+        color: green;
+    }
+    57% {
+        color: blue;
+    }
+    71% {
+        color: indigo;
+    }
+    85% {
+        color: violet;
+    }
+    100% {
+        color: red;
+    }
+}
 
 #writer{
     animation: intro_left_right;
@@ -88,6 +115,10 @@
     text-align: right;
     padding-right: 10px;
 }
+#writer:hover{
+    animation: rainbow_color 5s infinite;
+}
+
 h1{
     animation: intro_up_down;
     animation-fill-mode: backwards;
@@ -97,29 +128,18 @@ h1{
 h2{
     margin-left: 10px;
 }
-h4{
-    margin-left: 10px;
-}
 p{
     margin-left: 40px;
 }
 
-.svg{
-    padding: 10px;
-}
-
-.container{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.div{
-    text-align: center;
+.topnav {
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn {
-    margin-left: 10px;
+    float: left;
     color: black;
     text-align: center;
     padding: 10px;
@@ -139,68 +159,39 @@ p{
     color: white;
 }
 
-.tooltip {
-    position: fixed; /* 使用 fixed 而不是 absolute */
-    background-color: black;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
+/* 表格美化 */
+#userTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+#userTable thead {
+    background-color: #f2f2f2;
+}
+
+#userTable thead tr th {
+    padding: 12px;
+    border-bottom: 2px solid #ddd;
+}
+
+#userTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#userTable tbody tr:hover {
+    background-color: #eaeaea;
+}
+
+#userTable tbody tr td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.userTableFadeIn{
     opacity: 0;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    pointer-events: none;
-    z-index: 1000;
-    transform: translateY(0);
-}
-
-/* 留言板部分 */
-.form-group {
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-input[type="text"],
-textarea {
-    margin-left: 10px;
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    margin: 0 auto;
-    display: block;
-    width: 40%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    background-color: #fff;
-    color: #333;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-button:hover {
-    color: #fff;
-    background-color: #333;
-    border: 1px solid #fff;
-    transform: scale(1.1);
-}
-
-#messages {
-    margin-top: 30px;
-}
-
-.message {
-    margin: 8px;
-    padding: 5px 10px 10px 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: intro_left_right 0.5s ease-in-out forwards;
 }
