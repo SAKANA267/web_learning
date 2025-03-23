@@ -78,6 +78,32 @@
     opacity: 0;
 }
 
+@keyframes rainbow_color {
+    0% {
+        color: red;
+    }
+    14% {
+        color: orange;
+    }
+    28% {
+        color: yellow;
+    }
+    42% {
+        color: green;
+    }
+    57% {
+        color: blue;
+    }
+    71% {
+        color: indigo;
+    }
+    85% {
+        color: violet;
+    }
+    100% {
+        color: red;
+    }
+}
 
 #writer{
     animation: intro_left_right;
@@ -88,6 +114,10 @@
     text-align: right;
     padding-right: 10px;
 }
+#writer:hover{
+    animation: rainbow_color 5s infinite;
+}
+
 h1{
     animation: intro_up_down;
     animation-fill-mode: backwards;
@@ -203,4 +233,11 @@ button:hover {
     padding: 5px 10px 10px 10px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.timestamp {
+    text-align: right;
+    bottom: 5px;
+    right: 10px;
+    font-size: 12px;
+    color: #999;
 }

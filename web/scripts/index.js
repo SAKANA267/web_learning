@@ -86,7 +86,12 @@ function fetchMessages() {
             data.forEach(message => {
                 const messageElement = document.createElement('div');
                 messageElement.classList.add('message');
-                messageElement.innerHTML = `<h4>${message.name}</h4> <p>${message.message}</p>`;
+                messageElement.innerHTML =
+                `
+                <h4>${message.name}</h4> 
+                <p>${message.message}</p>
+                <p class="timestamp">${message.timestamp}</p>
+                `;
                 messages.appendChild(messageElement);
             });
         })

@@ -24,8 +24,11 @@ $message = $_POST['message'];
 $name = $conn->real_escape_string($name);
 $message = $conn->real_escape_string($message);
 
+// 获取当前时间
+$current_time = date("Y-m-d H:i:s");
+
 // 插入数据到数据库
-$sql = "INSERT INTO messages (name, message) VALUES ('$name', '$message')";
+$sql = "INSERT INTO messages (name, message, timestamp) VALUES ('$name', '$message', '$current_time')";
 
 if ($conn->query($sql) === TRUE) {
     echo "留言提交成功";
