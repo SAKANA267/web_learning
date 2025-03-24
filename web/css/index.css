@@ -1,10 +1,11 @@
 @keyframes intro_left_right{
-    0%{
-        color: white;
-        padding-right: 50px;
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
     }
-    100%{
-        color: black;
+    100% {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
@@ -240,4 +241,9 @@ button:hover {
     right: 10px;
     font-size: 12px;
     color: #999;
+}
+
+.messageFadeIn{
+    opacity: 0;
+    animation: intro_left_right 0.5s ease-in-out forwards;
 }

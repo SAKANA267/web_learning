@@ -83,7 +83,7 @@ function fetchMessages() {
             const messages = document.getElementById('messages');
             messages.innerHTML = ''; // 清空现有内容
 
-            data.forEach(message => {
+            data.forEach((message, index) => {
                 const messageElement = document.createElement('div');
                 messageElement.classList.add('message');
                 messageElement.innerHTML =
@@ -93,9 +93,17 @@ function fetchMessages() {
                 <p class="timestamp">${message.timestamp}</p>
                 `;
                 messages.appendChild(messageElement);
+
+                 // 为每个留言元素添加淡入动画类
+                 messageElement.classList.add('messageFadeIn');
+
+                 const delay = (index + 1) * 0.15;
+                 // 根据留言元素的索引设置动画延迟
+                 messageElement.style.animationDelay = `${delay}s`;
             });
         })
         .catch(error => console.error('Error fetching messages:', error));
 }
+
 // 页面加载完成后获取数据
 document.addEventListener('DOMContentLoaded', fetchMessages);
