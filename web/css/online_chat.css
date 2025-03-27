@@ -48,7 +48,8 @@
     100%{
     transform: rotate(360deg);
     stroke-dashoffset: -160;
-    } 
+    }
+    
 }
 
 .loading_out{
@@ -58,52 +59,23 @@
     opacity: 0;
 }
 
-/* 导航栏 */
-.topnav {
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid black;
-    font-size: 17px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.btn:hover {
-    background-color: black;
-    color: #f0f0f0;
-    transform: scale(1.1);
-}
-
-.btn:active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-/* 主体 */
 @keyframes intro_left_right{
     0%{
-        color: white;
+        opacity: 0;
         padding-right: 50px;
     }
     100%{
-        color: black;
+        opacity: 1;
     }
 }
 
 @keyframes intro_up_down{
     0%{
-        color: white;
+        opacity: 0;
         padding-top: 50px;
     }
     100%{
-        color: black;
+        opacity: 1;
     }
 }
 
@@ -147,7 +119,6 @@
     animation: rainbow_color 5s infinite;
 }
 
-
 h1{
     animation: intro_up_down;
     animation-fill-mode: backwards;
@@ -161,64 +132,34 @@ p{
     margin-left: 40px;
 }
 
-/* 代码块 */
-.code {
-    background-color: #313131;
-    color: #d4d4d4;
-    padding: 10px;
-    border-radius: 10px;
-    white-space: pre-wrap;
-    transition: transform 0.2s ease;
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.code:hover{
-    transform: scale(1.05);
+.topnav .btn{
+    margin-right: 40px;
 }
-.code .string { color: #ce9178; }
-.code .key { color: #9cdcfe; }
-.code .braces { color: #d4d4d4; }
-.code .brackets { color: #d4d4d4; }
-.code .colon { color: #d4d4d4; }
-.code .comma { color: #d4d4d4; }
 
-
-.question{
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.btn {
+    float: left;
+    color: black;
+    text-align: center;
     padding: 10px;
     border: 1px solid black;
-    border-radius: 10px;
-    transition: background-color 0.4s ease-in-out, transform 0.2s ease;
-}
-
-.question:hover{
-    background-color: #f0f0f080;
-}
-
-.options{
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 3px 10px;
-}
-
-.option{
-    display: block;
-    font-size: 1em;
-    margin: 5px 10px;
-    padding: 5px;
+    font-size: 17px;
     transition: background-color 0.2s ease, transform 0.2s ease;
-    border-radius: 10px;
 }
 
-.option:hover{
-    background-color: #f0f0f0;
-    transform: scale(1.05);
+.btn:hover {
+    background-color: black;
+    color: #f0f0f0;
+    transform: scale(1.1);
 }
 
-.feedback{
-    margin-left: 40px;
+.btn:active {
+    background-color: #4CAF50;
+    color: white;
 }
-
