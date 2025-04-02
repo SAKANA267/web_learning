@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../../css/login.css">
+    <script src="../../scripts/login.js" defer></script>
+</head>
+<body>
+
+    <div class="loading">
+        <svg viewbox='0 0 50 50'>
+        <circle r='25' cx='25' cy='25'></circle>
+        </svg>
+        <p>LOADING</p>
+    </div>
+    
+    <div class="topnav">
+        <p class="btn" onclick="loading.in('../../../index.html')">Index</p>
+    </div>
+
+    <div class="container">
+        <h1>Login</h1>
+
+        <p id="writer"><em>written by SAKANA</em></p>
+
+        <form action="../../api/login/login.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+
+</body>
