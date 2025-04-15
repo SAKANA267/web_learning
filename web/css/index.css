@@ -247,3 +247,36 @@ button:hover {
     opacity: 0;
     animation: intro_left_right 0.5s ease-in-out forwards;
 }
+
+/* 页脚样式 */
+footer {
+    background-color: #f0f0f0; /* 灰色背景 */
+    color: #333; /* 深色文字 */
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* 确保页脚在页面底部 */
+    border-top: 2px solid #ccc; /* 分割线 */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+}
+
+.ICP {
+    margin-top: 0.5rem;
+}
+
+.ICP a {
+    color: #333;
+    text-decoration: none;
+}
+
+.ICP a:hover {
+    text-decoration: underline;
+}

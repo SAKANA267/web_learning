@@ -17,7 +17,7 @@ window.addEventListener('load',()=>{
 
 
 //websocket
-const wsUrl = "ws://81.69.249.69:9000";
+const wsUrl = "wss://sakana267.online:9000";
 
 const socket = new WebSocket(wsUrl);
 
@@ -31,12 +31,14 @@ socket.onmessage = function(event) {
         const reader = new FileReader();
         reader.onload = function() {
             console.log("收到消息: ", reader.result);
-            appendMessage("服务器",reader.result);
+            const [name, message] = reader.result.split(': ');
+            appendMessage(name, message);
         };
         reader.readAsText(event.data);
     } else {
         console.log("收到消息: ", event.data);
-        appendMessage("服务器", event.data);
+        const [name, message] = event.data.split(': ');
+        appendMessage(name, message);
     }
 };
 
@@ -53,7 +55,7 @@ function sendMessage() {
     document.getElementById("messageInput").value = "";
 }
 
-// 添加消息到日志
+// 添加消息
 function appendMessage(name,message) {
     const messagesContainer = document.getElementById("messageContainer");
     const div = document.createElement("div");
