@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Online Chat</title>
-    <link rel="stylesheet" href="../../css/online_chat.css">
-    <script src="../../scripts/online_chat.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../../css/login.css">
+    <script src="../../scripts/login.js" defer></script>
 </head>
 <body>
 
@@ -18,25 +18,22 @@
     
     <div class="topnav">
         <p class="btn" onclick="loading.in('../../../index.html')">Index</p>
-        <p class="btn" onclick="loading.in('../login/login.html')">登录</p>
     </div>
 
     <div class="container">
-        <h1>Online Chat</h1>
+        <h1>Sign Up</h1>
 
         <p id="writer"><em>written by SAKANA</em></p>
-        
-        <h2>消息日志：</h2>
-        <div id="messageContainer">
-            
-        </div>
 
-        <div>
-            <input type="text" id="messageInput" placeholder="请输入文本">
-            <button class="btn" onclick="sendMessage()">发送</button>
-        </div>
+        <form action="../../api/login/sign_up.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Sign Up">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </form>
     </div>
-
 
 </body>
 
