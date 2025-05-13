@@ -11,7 +11,7 @@ try {
     $stmt = $conn->prepare("SELECT timestamp,change_description FROM devLog ORDER BY timestamp DESC");
     $stmt->execute();
 
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $logs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($logs);
 } catch(PDOException $e) {
     echo json_encode(array('error' => $e->getMessage()));

@@ -38,7 +38,7 @@ document.getElementById('message-form').addEventListener('submit', function(even
 
     // 发送AJAX请求
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', './web/api/dev_log/dev_log_submit.php', true);
+    xhr.open('POST', './../../api/dev_log/dev_log_submit.php', true);
     xhr.onload = function() {
         if (xhr.status === 200) {
             alert('日志提交成功！');
@@ -61,12 +61,12 @@ function fetchMessages() {
             console.error('Error:', data.error);
         } else {
             const table = document.getElementById('userTable');
-            data.forEach(user => {
+            data.forEach(log => {
                 const row = table.insertRow();
-                const idCell = row.insertCell();
-                const nameCell = row.insertCell();
-                idCell.textContent = user.id;
-                nameCell.textContent = user.num;
+                const timestampCell = row.insertCell();
+                const contentCell = row.insertCell();
+                timestampCell.textContent = log.timestamp;
+                contentCell.textContent = log.change_description;
             });
             animateTableRows();//获取数据成功后，执行动画
         }
