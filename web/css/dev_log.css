@@ -4,33 +4,21 @@ h1{
     animation-duration: 600ms;
     text-align: center;
 }
-
 h2{
-    margin-left: 10px;
-}
-h4{
     margin-left: 10px;
 }
 p{
     margin-left: 40px;
 }
 
-.svg{
-    padding: 10px;
-}
-
-.container{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.div{
-    text-align: center;
+.topnav {
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn {
-    margin-left: 10px;
+    float: left;
     color: black;
     text-align: center;
     padding: 10px;
@@ -48,19 +36,6 @@ p{
 .btn:active {
     background-color: #4CAF50;
     color: white;
-}
-
-.tooltip {
-    position: fixed; /* 使用 fixed 而不是 absolute */
-    background-color: black;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    pointer-events: none;
-    z-index: 1000;
-    transform: translateY(0);
 }
 
 /* 留言板部分 */
@@ -105,25 +80,41 @@ button:hover {
     transform: scale(1.1);
 }
 
-#messages {
-    margin-top: 30px;
+
+/* 表格美化 */
+#userTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
 }
 
-.message {
-    margin: 8px;
-    padding: 5px 10px 10px 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.timestamp {
-    text-align: right;
-    bottom: 5px;
-    right: 10px;
-    font-size: 12px;
-    color: #999;
+#userTable thead {
+    background-color: #f2f2f2;
 }
 
-.messageFadeIn{
+#userTable thead tr th {
+    padding: 12px;
+    border-bottom: 2px solid #ddd;
+}
+
+#userTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#userTable tbody tr:hover {
+    background-color: #eaeaea;
+}
+
+#userTable tbody tr td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.userTableFadeIn{
     opacity: 0;
     animation: intro_left_right 0.5s ease-in-out forwards;
 }
+

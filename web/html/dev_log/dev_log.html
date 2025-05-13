@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3C3U High Way</title>
-    <link rel="stylesheet" href="../../css/3c3u_high_way.css">
-    <script src="../../scripts/3c3u_high_way.js" defer></script>
+    <link rel="stylesheet" href="../../css/dev_log.css">
+    <script src="../../scripts/dev_log.js" defer></script>
 </head>
+
 <body>
     
     <div class="loading">
@@ -21,20 +22,33 @@
     </div>
 
     <div class="container">
-        <h1>3C3U高速建造榜单</h1>
+        <h1>Dev log</h1>
 
         <p id="writer"><em>written by SAKANA</em></p>
-
 
     </div>
 
     <div>
-        <h2>用户列表</h1>
+        <form id="message-form">
+            <div class="form-group">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="message">留言内容:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>日志列表</h1>
 
         <table id="userTable">
             <tr>
-                <th>ID</th>
-                <th>建造数量</th>
+                <th>日期</th>
+                <th>修改内容</th>
             </tr>
             
         </table>
