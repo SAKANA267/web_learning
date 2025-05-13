@@ -29,8 +29,32 @@ window.addEventListener('load',()=>{
         loading.out();
 })
 
-// 使用AJAX请求获取数据
-fetch('./../../api/3c3u_high_way/3c3u_high_way.php')
+//提交留言表单
+document.getElementById('message-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // 阻止表单默认提交行为
+
+    // 获取表单数据
+    var formData = new FormData(this);
+
+    // 发送AJAX请求
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', './web/api/dev_log/dev_log_submit.php', true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            alert('日志提交成功！');
+            // 清空表单
+            document.getElementById('message-form').reset();
+            fetchMessages(); // 重新加载
+        } else {
+            alert('日志提交失败，请稍后再试。');
+        }
+    };
+    xhr.send(formData);
+});
+
+//加载日志名单
+function fetchMessages() {
+    fetch('./../../api/dev_log/dev_log_fetch.php')
     .then(response => response.json())
     .then(data => {
         if (data.error) {
@@ -48,3 +72,7 @@ fetch('./../../api/3c3u_high_way/3c3u_high_way.php')
         }
     })
     .catch(error => console.error('Error:', error));
+}
+
+// 页面加载完成后获取数据
+document.addEventListener('DOMContentLoaded', fetchMessages);
