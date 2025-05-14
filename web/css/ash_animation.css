@@ -3,8 +3,6 @@
     background-color: #000000;
     border-radius: 50%;
     z-index: 10;
-    box-shadow: 0 0 10px 2px rgba(231, 97, 8, 0.8);
-    filter: blur(1px);
 }
 
 .ember-container {

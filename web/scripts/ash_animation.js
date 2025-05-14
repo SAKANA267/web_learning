@@ -27,18 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
         }
         
-        // 随机颜色 (橙色到红色的渐变)
-        const hue = 10 + Math.floor(Math.random() * 30); // 10-40 (红橙色范围)
-        const saturation = 5 + Math.floor(Math.random() * 5); // 80-100%
-        const lightness = 10 + Math.floor(Math.random() * 60); // 40-60%
-        ember.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        // 随机黑色或白色
+        const isWhite = Math.random() > 0.5; // 50%概率为白色，50%概率为黑色
+        if (isWhite) {
+            ember.style.backgroundColor = "white"; // 白色
+        } else {
+            ember.style.backgroundColor = "black"; // 黑色
+        }
         
-        // 随机发光效果
-        const glowIntensity = Math.random() * 2 + 1;
-        ember.style.boxShadow = `0 0 ${glowIntensity}px ${glowIntensity/2}px hsl(${hue}, ${saturation}%, ${lightness+10}%)`;
         
         // 设置初始透明度为可见
-        ember.style.opacity = 0.9 + Math.random() * 0.1;
+        ember.style.opacity = 0.8 + Math.random() * 0.2;
         
         return ember;
     }
@@ -48,13 +47,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const ember = createEmberShape();
         emberContainer.appendChild(ember);
         
-        // 起始位置 (左下角区域)
+        // 起始位置
         const startX = window.innerWidth * (1 + Math.random() * 0.5);
-        const startY = window.innerHeight * (1 + Math.random() * 0.3);
+        const startY = window.innerHeight * (0.5 + Math.random() * 0.5);
         
-        // 结束位置 (右上角区域)
+        // 结束位置
         const endX = Math.random() * (window.innerWidth * 0.3);
-        const endY = Math.random() * (window.innerHeight * 0.3);
+        const endY = Math.random() * (window.innerHeight * 0.5);
         
         // 动画持续时间 (4-10秒)
         const duration = 4000 + Math.random() * 6000;
